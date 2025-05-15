@@ -7,7 +7,7 @@ const OrderList = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch('${import.meta.env.VITE_API_URL}/orders')
+    fetch('${process.env.REACT_APP_API_URL}/orders')
       .then(res => res.json())
       .then(setOrders);
   }, []);

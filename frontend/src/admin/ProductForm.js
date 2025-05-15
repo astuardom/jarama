@@ -38,8 +38,8 @@ const ProductForm = ({ editMode = false, productData = {}, onSuccess }) => {
     e.preventDefault();
   
     const url = editMode
-      ? `${import.meta.env.VITE_API_URL}/products/${productData._id}`
-      : '${import.meta.env.VITE_API_URL}/products';
+      ? `${process.env.REACT_APP_API_URL}/products/${productData._id}`
+      : '${process.env.REACT_APP_API_URL}/products';
   
     const method = editMode ? 'PUT' : 'POST';
   

@@ -4,7 +4,7 @@ const AdminProductList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('${import.meta.env.VITE_API_URL}/products')
+    fetch('${process.env.REACT_APP_API_URL}/products')
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.error('Error al cargar productos:', err));
@@ -13,7 +13,7 @@ const AdminProductList = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('¿Estás seguro de eliminar este producto?')) return;
     try {
-      await fetch(`${import.meta.env.VITE_API_URL}/products/${id}`, { method: 'DELETE' });
+      await fetch(`${process.env.REACT_APP_API_URL}/products/${id}`, { method: 'DELETE' });
       setProducts(products.filter(p => p._id !== id));
     } catch (err) {
       console.error('Error al eliminar:', err);
