@@ -4,7 +4,8 @@ const { MongoClient, ObjectId } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 5050;
-const MONGODB_URI = 'mongodb://localhost:27017';
+//const MONGODB_URI = 'mongodb://localhost:27017';
+const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = 'animerch';
 const COLLECTION = 'products';
 
