@@ -56,6 +56,7 @@ const AdminOrders = () => {
                 <th className="px-4 py-3">Pago</th>
                 <th className="px-4 py-3">Tracking</th>
                 <th className="px-4 py-3">Fecha</th>
+                <td className="px-4 py-3">{order.proveedorEnvio || '—'}</td>
               </tr>
             </thead>
             <tbody>

@@ -17,8 +17,7 @@ async function connectToDatabase() {
 
 // 📨 Guardar nuevo pedido (solo en MongoDB)
 router.post('/send-order', async (req, res) => {
-  const { name, email, phone, region, address, cart, total } = req.body;
-
+  const { name, email, phone, region, address, cart, total, proveedorEnvio } = req.body;
   try {
     const db = await connectToDatabase();
     await db.collection('orders').insertOne({
@@ -29,6 +28,7 @@ router.post('/send-order', async (req, res) => {
       address,
       cart,
       total,
+      proveedorEnvio,
       status: 'pendiente',
       paid: false,
       tracking: '',
