@@ -51,12 +51,12 @@ const AdminOrders = () => {
                 <th className="px-4 py-3">Cliente</th>
                 <th className="px-4 py-3">Contacto</th>
                 <th className="px-4 py-3">Dirección</th>
+                <th className="px-4 py-3">Envío</th> {/* ✅ NUEVA COLUMNA */}
                 <th className="px-4 py-3">Total</th>
                 <th className="px-4 py-3">Estado</th>
                 <th className="px-4 py-3">Pago</th>
                 <th className="px-4 py-3">Tracking</th>
                 <th className="px-4 py-3">Fecha</th>
-                <td className="px-4 py-3">{order.proveedorEnvio || '—'}</td>
               </tr>
             </thead>
             <tbody>
@@ -68,6 +68,7 @@ const AdminOrders = () => {
                     <p>{order.phone}</p>
                   </td>
                   <td className="px-4 py-3">{order.address}, {order.region}</td>
+                  <td className="px-4 py-3">{order.proveedorEnvio || '—'}</td> {/* ✅ NUEVO DATO */}
                   <td className="px-4 py-3 font-semibold text-red-600">${order.total?.toLocaleString()}</td>
                   <td className="px-4 py-3">
                     <select
