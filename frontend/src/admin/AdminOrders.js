@@ -6,7 +6,7 @@ const AdminOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch('http://localhost:5050/api/orders');
+      const res = await fetch('${import.meta.env.VITE_API_URL}/orders');
       const data = await res.json();
       setOrders(data);
     } catch (error) {
@@ -20,7 +20,7 @@ const AdminOrders = () => {
     const payload = { [field]: value };
 
     try {
-      await fetch(`http://localhost:5050/api/orders/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/orders/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

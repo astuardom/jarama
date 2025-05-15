@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Productos
-    fetch('http://localhost:5050/api/products')
+    fetch('${import.meta.env.VITE_API_URL}/products')
       .then(res => res.json())
       .then(products => {
         const total = products.length;
@@ -58,7 +58,7 @@ const Dashboard = () => {
       .catch(console.error);
 
     // Pedidos
-    fetch('http://localhost:5050/api/dashboard-stats')
+    fetch('${import.meta.env.VITE_API_URL}/dashboard-stats')
       .then(res => res.json())
       .then(data => setOrders(data))
       .catch(console.error);

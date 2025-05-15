@@ -7,7 +7,7 @@ const OrderList = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5050/api/orders')
+    fetch('${import.meta.env.VITE_API_URL}/orders')
       .then(res => res.json())
       .then(setOrders);
   }, []);

@@ -1,0 +1,27 @@
+# Query: fetch('${import.meta.env.VITE_API_URL}/products')
+# ContextLines: 1
+
+6 results - 5 files
+
+frontend\build\static\js\main.b29f8f9e.js.map:
+  1: ⟪ 9855863 characters skipped ⟫   promedioPrecio: 0,\n    categoriaPopular: '',\n  });\n\n  const [orders, setOrders] = useState({\n    totalPedidos: 0,\n    ingresosTotales: 0,\n  });\n\n  useEffect(() => {\n    // Productos\n    fetch(`${import.meta.env.VITE_API_URL}/products`)\n      .then(res => res.json())\n      .then(products => {\n        const total = products.length;\n        const stock = products.reduce((sum, p) => sum + (p.stock || 0), 0);\n        const totalPrecio = products.reduce((sum, p) => sum + (p.price || 0), 0);\n        const categorias = {};\n\n        products.forEach(p => {\n          const raw = p.category || 'otros';\n          const key = raw.trim().toLowerCase();\n          categorias[key] = (categorias[key] || 0) + 1;\n        });\n\n        const categoriaPopular = Object.entries(categorias).reduce(\n          (max, [cat, count]) => (count > max.count ? { cat, count } : max),\n          { cat: '', count: 0 }\n        ).cat;\n\n        setStats({\n          total,\n          stock,\n          categorias,\n          promedioPrecio: total ? (totalPrecio / total).toFixed(2) : 0,\n          categoriaPopular,\n        });\n      })\n      .catch(console.error);\n\n    // Pedidos\n    fe⟪ 2450 characters skipped ⟫]);\n  const [search, setSearch] = useState('');\n  const [seriesList, setSeriesList] = useState([]);\n  const [selectedSerie, setSelectedSerie] = useState('');\n\n  const loadProducts = () => {\n    fetch(`${import.meta.env.VITE_API_URL}/products`)\n      .then(res => res.json())\n      .then(data => {\n        setProducts(data);\n        setFiltered(data);\n\n        const uniqueSeries = [...new Set(data.map(p => p.series).filter(Boolean))];\n        setSeriesList(uniqueSeries);\n      })\n      .catch(console.error);\n  };\n\n  useEffect(() => {\n    loadProducts();\n  }, []);\n\n  useEffect(() => {\n    const searchTerm = search.toLowerCase();\n    const result = products.filter(p =>\n      (!selectedSerie || p.series === selectedSerie) &&\n      (\n        p.title.toLowerCase().includes(searchTerm) ||\n        p.series.toLowerCase().includes(searchTerm)\n      )\n    );\n    setFiltered(result);\n  }, [search, selectedSerie, products]);\n\n  const handleDelete = async (id) => {\n    if (!window.confirm('¿Estás seguro de eliminar este producto?')) return;\n    await fetch(`${import.meta.env.VITE_API_URL}/products/${id}`, { method: 'DELETE' });\n    loadProducts();\n  };\n\n  re
+
+frontend\src\admin\Dashboard.js:
+  30      // Productos
+  31:     fetch(`${import.meta.env.VITE_API_URL}/products`)
+  32        .then(res => res.json())
+
+frontend\src\admin\ProductList.js:
+  11    const loadProducts = () => {
+  12:     fetch(`${import.meta.env.VITE_API_URL}/products`)
+  13        .then(res => res.json())
+
+frontend\src\components\AdminProductList.js:
+  6    useEffect(() => {
+  7:     fetch(`${import.meta.env.VITE_API_URL}/products`)
+  8        .then(res => res.json())
+
+frontend\src\pages\AdminDashboard.js:
+  12      } else {
+  13:       fetch(`${import.meta.env.VITE_API_URL}/products`)
+  14          .then(res => res.json())

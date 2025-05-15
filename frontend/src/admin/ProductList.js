@@ -9,7 +9,7 @@ const ProductList = ({ onEdit }) => {
   const [selectedSerie, setSelectedSerie] = useState('');
 
   const loadProducts = () => {
-    fetch('http://localhost:5050/api/products')
+    fetch('${import.meta.env.VITE_API_URL}/products')
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -39,7 +39,7 @@ const ProductList = ({ onEdit }) => {
 
   const handleDelete = async (id) => {
     if (!window.confirm('¿Estás seguro de eliminar este producto?')) return;
-    await fetch(`http://localhost:5050/api/products/${id}`, { method: 'DELETE' });
+    await fetch(`${import.meta.env.VITE_API_URL}/products/${id}`, { method: 'DELETE' });
     loadProducts();
   };
 

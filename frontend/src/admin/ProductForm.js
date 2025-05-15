@@ -38,8 +38,8 @@ const ProductForm = ({ editMode = false, productData = {}, onSuccess }) => {
     e.preventDefault();
   
     const url = editMode
-      ? `http://localhost:5050/api/products/${productData._id}`
-      : 'http://localhost:5050/api/products';
+      ? `${import.meta.env.VITE_API_URL}/products/${productData._id}`
+      : '${import.meta.env.VITE_API_URL}/products';
   
     const method = editMode ? 'PUT' : 'POST';
   
