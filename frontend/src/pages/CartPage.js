@@ -55,7 +55,7 @@ const CartPage = () => {
     };
 
     try {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/send-order', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/send-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderDetails),
