@@ -1,4 +1,4 @@
-const API_URL = '${import.meta.env.VITE_API_URL}/products';
+const API_URL = `${import.meta.env.VITE_API_URL}/products`;
 
 // Obtener todos los productos
 export async function fetchProducts() {
