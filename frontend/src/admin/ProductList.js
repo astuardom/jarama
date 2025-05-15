@@ -9,7 +9,7 @@ const ProductList = ({ onEdit }) => {
   const [selectedSerie, setSelectedSerie] = useState('');
 
   const loadProducts = () => {
-    fetch('${process.env.REACT_APP_API_URL}/products')
+    fetch(`${process.env.REACT_APP_API_URL}/products`)
       .then(res => res.json())
       .then(data => {
         setProducts(data);
