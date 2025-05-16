@@ -22,13 +22,12 @@ const AnimeNavbar = () => {
       navigate(`/tienda?busqueda=${encodeURIComponent(query)}`);
     }
   };
-  
+
   const handleSearchKey = (e) => {
     if (e.key === 'Enter') {
       handleSearch();
     }
   };
-  
 
   const categories = [
     { id: 'shonen', name: 'Shonen' },
@@ -39,7 +38,7 @@ const AnimeNavbar = () => {
   ];
 
   const navLinkClasses = ({ isActive }) =>
-    'text-white font-medium hover:text-yellow-300 transition-colors ' +
+    'block text-white font-medium hover:text-yellow-300 transition-colors ' +
     (isActive ? 'underline underline-offset-4' : '');
 
   return (
@@ -92,6 +91,19 @@ const AnimeNavbar = () => {
             </button>
           </div>
         </div>
+
+        {/* Menú desplegable para móvil */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-black text-white px-6 py-4 space-y-3">
+            <NavLink to="/" onClick={() => setMobileMenuOpen(false)} className={navLinkClasses}>Inicio</NavLink>
+            <NavLink to="/tienda" onClick={() => setMobileMenuOpen(false)} className={navLinkClasses}>Tienda</NavLink>
+            <NavLink to="/disena" onClick={() => setMobileMenuOpen(false)} className={navLinkClasses}>Diseña</NavLink>
+            <NavLink to="/carrito" onClick={() => setMobileMenuOpen(false)} className={navLinkClasses}>Carrito</NavLink>
+            {localStorage.getItem('isAdmin') !== 'true' && (
+              <NavLink to="/admin-login" onClick={() => setMobileMenuOpen(false)} className={navLinkClasses}>Admin</NavLink>
+            )}
+          </div>
+        )}
       </nav>
 
       {/* Franja secundaria para categorías */}
