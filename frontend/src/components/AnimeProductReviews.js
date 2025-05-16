@@ -1,15 +1,11 @@
 import React from 'react';
 
 const AnimeProductReviews = ({ productId }) => {
-  // Datos simulados de reseñas
-  const reviews = [
-    { id: 1, user: 'FanDeNaruto', rating: 5, comment: '¡Excelente polera, la tela es muy cómoda y el diseño es genial!' },
-    { id: 2, user: 'OtakuFeliz', rating: 4, comment: 'Muy buena calidad, llegó rápido. El diseño es un poco más oscuro de lo que esperaba.' },
-  ];
+  const reviews = []; // ⛔ Sin reseñas por defecto
 
   return (
     <div className="mt-12 bg-white rounded-xl p-8 shadow-lg">
-      <h2 className="text-2xl font-bold mb-6 border-b pb-2 text-gray-800">Reseñas ({reviews.length})</h2>
+      <h2 className="text-2xl font-bold mb-6 border-b pb-2 text-gray-800">Reseñas</h2>
       {reviews.length === 0 ? (
         <p className="text-gray-600">Sé el primero en dejar una reseña!</p>
       ) : (
