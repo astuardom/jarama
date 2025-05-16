@@ -8,7 +8,9 @@ const port = process.env.PORT || 5050;
 const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = 'animerch';
 const COLLECTION = 'products';
+const reviewRoutes = require('./routes/reviewRoutes');
 
+app.use('/api', reviewRoutes);
 app.use(cors());
 app.use(express.json());
 let db;
