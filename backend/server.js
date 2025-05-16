@@ -9,12 +9,8 @@ const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = 'animerch';
 const COLLECTION = 'products';
 
-const productRoutes = require('./routes/productRoutes');
-
-
 app.use(cors());
 app.use(express.json());
-app.use('/api', productRoutes);
 let db;
 
 // 📦 Conexión a MongoDB
