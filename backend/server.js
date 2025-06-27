@@ -116,6 +116,9 @@ const orderRoutes = require('./routes/orderRoutes');
 app.use('/api', orderRoutes); // Todas las rutas de pedidos están aquí
 
 // ✅ Arranque del servidor
+app.get('/', (req, res) => {
+  res.send('🚀 Backend de Jaramacolor activo');
+});
 app.listen(port, () => {
   console.log(`🚀 Backend corriendo en http://localhost:${port}`);
 });
